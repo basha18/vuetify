@@ -1,8 +1,9 @@
 <template>
-      <v-container app class="mx-50 my-10" scrollable>
+     <div id="app">
+      <v-container app  style="max-height: 400px max-width: 100px" class="mx-50 my-10">
         <v-row align="start" justify="center">
           <v-col  cols="12" sm="8" md="4">
-            <v-card class="elevation-12">
+            <v-card>
 
               <v-toolbar  color="blue">
                 <v-toolbar-title>Patient Registration </v-toolbar-title>
@@ -26,6 +27,7 @@
                 </v-form>
               </v-card-text>
               <v-card-actions>
+                <v-btn router to="/staff-home">Cancel</v-btn>
                 <v-spacer></v-spacer>
                 <v-btn type="submit" form="submit-form" color="blue">Submit</v-btn>
               </v-card-actions>
@@ -33,6 +35,7 @@
           </v-col>    
         </v-row>
       </v-container>
+     </div>
 </template> 
 
 <script>
@@ -79,6 +82,8 @@
 }
 </script>
 
-
+.scroll {
+   overflow-y: scroll
+}
 
 

@@ -27,16 +27,15 @@
               <v-card-text>
                 <v-form @submit.prevent="onSubmit" id="submit-form">
                   <v-text-field
-                    label="Patient Id or Mobile Number"
-                    name="login"
+                    label="Enter your phone"
+                    v-model="Username"
                     prepend-icon="mdi-account"
                     type="text"
                   ></v-text-field>
 
                   <v-text-field
-                    id="password"
                     label="Password"
-                    name="password"
+                    v-model="Password"
                     prepend-icon="mdi-lock"
                     type="password"
                   ></v-text-field>
@@ -55,10 +54,52 @@
 </template>
 
 <script>
+
+  import {
+    CognitoUserPool,
+    CognitoUser,
+    AuthenticationDetails
+  } from 'amazon-cognito-identity-js';
+
   export default {
-    data() {
-    return {
-   }
+    data () {
+      return {
+        Username: '',
+        Password: '',
+      }
+    },
+    methods: {
+      onSubmit () {
+        const authData = {
+                Username: this.Username,
+                Password: this.Password
+        }
+        console.log(authData)
+        const authDetails = new AuthenticationDetails(authData)
+        const poolData = {
+              UserPoolId: this.$store.state.cognito_userpool_id,
+              ClientId: this.$store.state.cognito_appclient_id
+        }
+        console.log(poolData)
+        const userPool = new CognitoUserPool(poolData)
+        const userData = {
+              Username: this.Username,
+              Pool: userPool
+        }
+        console.log(userData)
+        const cognitoUser = new CognitoUser(userData)
+        cognitoUser.authenticateUser(authDetails, {
+                   onSuccess: function(result) {
+                        console.log('Successfully logged!')
+                        },
+                   onFailure: function(err) {
+                        console.log('erro')
+                        alert(err.message || JSON.stringify(err))
+                   }
+
+        })
+        this.$router.push('/patient-home')
+     }
     }
   }
 </script>

@@ -38,7 +38,8 @@ export default {
       drawer: false,
       links: [
         { icon: 'mdi-account-plus', text: 'User Registration', route: '/registration' },
-        { icon: 'mdi-account-search', text: 'Patient Search', route: '/patient-search' },
+        { icon: 'mdi-account-edit', text: 'Add Consultation', route: '/add-consultation' },
+	{ icon: 'mdi-cloud-upload', text: 'Upload Documents', route: '/upload-docs'},
         { icon: 'mdi-cash-100',text: 'Billing', route:'/billing'},
         { icon: 'mdi-logout',text: 'Logout', route:'/'},
       ]

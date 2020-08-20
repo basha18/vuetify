@@ -1,6 +1,6 @@
 <template>
   <v-footer
-    color="lime lighten-5"
+    color="brown lighten-5"
   >
     <v-row
       justify="center"
@@ -9,7 +9,7 @@
       <v-btn
         v-for="link in links"
         :key="link"
-        color="black"
+        color="light-blue"
         text
         rounded
         class="my-2"

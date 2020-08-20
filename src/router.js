@@ -4,12 +4,13 @@ import Welcome from './views/welcome.vue'
 import Stafflogin from './views/staff-login.vue'
 import Patientlogin from './views/patient-login.vue'
 import Staffhome from './views/staff-home.vue'
-import Patientsearch from './views/patient-search.vue'
+import Addconsult from './views/add-consultation.vue'
 import Billing from './views/billing.vue'
 import Registration from './views/registration.vue'
 import Viewrecords from './views/view-records.vue'
 import Appointments from './views/appointments.vue'
 import Patienthome from './views/patient-home.vue'
+import Uploaddocs from './views/upload-docs.vue'
 
 Vue.use(VueRouter)
 
@@ -39,10 +40,15 @@ const routes = [
 	     component: Registration	
           },
 	  {
-             path: '/patient-search',
-             name: 'patientsearch',
-             component: Patientsearch
+             path: '/add-consultation',
+             name: 'addconsult',
+             component: Addconsult
           },
+	  {
+	     path: '/upload-docs',
+             name: 'uploaddocs',
+             component: Uploaddocs
+          },		  
           {
              path: '/billing',
              name: 'billing',
