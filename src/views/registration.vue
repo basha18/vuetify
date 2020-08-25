@@ -39,6 +39,7 @@
 </template> 
 
 <script>
+    import axios from '../axios-auth';
     export default {
         data () {
             return {
@@ -67,7 +68,13 @@
 
             onSubmit()
             {
+		const formData ={ name: 'aa' }
                 console.log("success")
+		 axios.post('https://o2dlaa6zyk.execute-api.us-east-1.amazonaws.com/v1/adduser', formData)
+		//  axios.post('sample', formData)
+        	  .then(res => console.log(res))
+	          .catch(error => console.log(error))
+
 		console.log(this.male)
 		console.log(this.female)
 		console.log(this.name)
